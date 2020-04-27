@@ -1,0 +1,395 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x01fab1c6, pid=8932, tid=0x000004f8
+#
+# JRE version: OpenJDK Runtime Environment (8.0_232-b09) (build 1.8.0_232-b09)
+# Java VM: OpenJDK Client VM (25.232-b09 mixed mode windows-x86 )
+# Problematic frame:
+# j  net.bytebuddy.description.type.TypeDescription$Generic$OfNonGenericType.getSort()Lnet/bytebuddy/description/type/TypeDefinition$Sort;+0
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x006e9400):  JavaThread "main" [_thread_in_Java, id=1272, stack(0x00b10000,0x00b60000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x6052e19a
+
+Registers:
+EAX=0x8cca27eb, EBX=0x17c9d8d9, ECX=0x00000001, EDX=0x17ca2368
+ESP=0x00b5e9b8, EBP=0x00b5e9d8, ESI=0x17c9d8c0, EDI=0x00b5e9e0
+EIP=0x01fab1c6, EFLAGS=0x00010287
+
+Top of Stack: (sp=0x00b5e9b8)
+0x00b5e9b8:   00b5e9b8 17c9d8c0 00b5e9e0 17ca2368
+0x00b5e9c8:   00000000 17c9d8d8 00000000 00b5e9e0
+0x00b5e9d8:   00b5ea04 01fa4579 09ff5085 00b5e9e4
+0x00b5e9e8:   17c72340 00b5ea28 17c7bac8 00000000
+0x00b5e9f8:   17c72490 00b5e9e0 00b5ea28 00b5ea5c
+0x00b5ea08:   01fa4579 00000000 00000000 00000000
+0x00b5ea18:   09ff8880 09ff5058 00000000 04436398
+0x00b5ea28:   09ff3a28 04436330 09fe8718 00000001 
+
+Instructions: (pc=0x01fab1c6)
+0x01fab1a6:   0f 84 1d 00 00 00 8b 48 08 83 c1 08 89 48 08 8b
+0x01fab1b6:   40 0c 83 e0 f8 03 c8 3b 0d ac 51 c0 72 0f 83 5d
+0x01fab1c6:   00 00 00 89 84 24 00 f0 ff ff 89 84 24 00 e0 ff
+0x01fab1d6:   ff 89 84 24 00 d0 ff ff 89 84 24 00 c0 ff ff 64 
+
+
+Register to memory mapping:
+
+EAX=0x8cca27eb is an unknown value
+EBX=0x17c9d8d9 is pointing into metadata
+ECX=0x00000001 is an unknown value
+EDX=0x17ca2368 is pointing into metadata
+ESP=0x00b5e9b8 is pointing into the stack for thread: 0x006e9400
+EBP=0x00b5e9d8 is pointing into the stack for thread: 0x006e9400
+ESI=0x17c9d8c0 is pointing into metadata
+EDI=0x00b5e9e0 is pointing into the stack for thread: 0x006e9400
+
+
+Stack: [0x00b10000,0x00b60000],  sp=0x00b5e9b8,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+j  net.bytebuddy.description.type.TypeDescription$Generic$OfNonGenericType.getSort()Lnet/bytebuddy/description/type/TypeDefinition$Sort;+0
+j  net.bytebuddy.description.method.MethodDescription$AbstractBase.getGenericSignature()Ljava/lang/String;+240
+j  net.bytebuddy.dynamic.scaffold.TypeWriter$MethodPool$Record$ForDefinedMethod.apply(Lnet/bytebuddy/jar/asm/ClassVisitor;Lnet/bytebuddy/implementation/Implementation$Context;Lnet/bytebuddy/implementation/attribute/AnnotationValueFilter$Factory;)V+43
+j  net.bytebuddy.dynamic.scaffold.TypeWriter$Default$ForCreation.create(Lnet/bytebuddy/dynamic/scaffold/TypeInitializer;Lnet/bytebuddy/dynamic/scaffold/TypeWriter$Default$ClassDumpAction$Dispatcher;)Lnet/bytebuddy/dynamic/scaffold/TypeWriter$Default$UnresolvedType;+484
+j  net.bytebuddy.dynamic.scaffold.TypeWriter$Default.make(Lnet/bytebuddy/dynamic/TypeResolutionStrategy$Resolved;)Lnet/bytebuddy/dynamic/DynamicType$Unloaded;+38
+j  net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilder.make(Lnet/bytebuddy/dynamic/TypeResolutionStrategy;Lnet/bytebuddy/pool/TypePool;)Lnet/bytebuddy/dynamic/DynamicType$Unloaded;+132
+j  net.bytebuddy.dynamic.scaffold.subclass.SubclassDynamicTypeBuilder.make(Lnet/bytebuddy/dynamic/TypeResolutionStrategy;)Lnet/bytebuddy/dynamic/DynamicType$Unloaded;+5
+j  net.bytebuddy.dynamic.DynamicType$Builder$AbstractBase.make()Lnet/bytebuddy/dynamic/DynamicType$Unloaded;+4
+j  net.bytebuddy.dynamic.DynamicType$Builder$AbstractBase$Delegator.make()Lnet/bytebuddy/dynamic/DynamicType$Unloaded;+4
+j  org.mockito.internal.creation.bytebuddy.SubclassBytecodeGenerator.mockClass(Lorg/mockito/internal/creation/bytebuddy/MockFeatures;)Ljava/lang/Class;+907
+j  org.mockito.internal.creation.bytebuddy.TypeCachingBytecodeGenerator$1.call()Ljava/lang/Class;+11
+j  org.mockito.internal.creation.bytebuddy.TypeCachingBytecodeGenerator$1.call()Ljava/lang/Object;+1
+j  net.bytebuddy.TypeCache.findOrInsert(Ljava/lang/ClassLoader;Ljava/lang/Object;Ljava/util/concurrent/Callable;)Ljava/lang/Class;+20
+j  net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(Ljava/lang/ClassLoader;Ljava/lang/Object;Ljava/util/concurrent/Callable;)Ljava/lang/Class;+4
+j  net.bytebuddy.TypeCache.findOrInsert(Ljava/lang/ClassLoader;Ljava/lang/Object;Ljava/util/concurrent/Callable;Ljava/lang/Object;)Ljava/lang/Class;+26
+j  net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(Ljava/lang/ClassLoader;Ljava/lang/Object;Ljava/util/concurrent/Callable;Ljava/lang/Object;)Ljava/lang/Class;+6
+j  org.mockito.internal.creation.bytebuddy.TypeCachingBytecodeGenerator.mockClass(Lorg/mockito/internal/creation/bytebuddy/MockFeatures;)Ljava/lang/Class;+50
+j  org.mockito.internal.creation.bytebuddy.SubclassByteBuddyMockMaker.createMockType(Lorg/mockito/mock/MockCreationSettings;)Ljava/lang/Class;+31
+j  org.mockito.internal.creation.bytebuddy.SubclassByteBuddyMockMaker.createMock(Lorg/mockito/mock/MockCreationSettings;Lorg/mockito/invocation/MockHandler;)Ljava/lang/Object;+2
+j  org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker.createMock(Lorg/mockito/mock/MockCreationSettings;Lorg/mockito/invocation/MockHandler;)Ljava/lang/Object;+6
+j  org.mockito.internal.util.MockUtil.createMock(Lorg/mockito/mock/MockCreationSettings;)Ljava/lang/Object;+10
+j  org.mockito.internal.MockitoCore.mock(Ljava/lang/Class;Lorg/mockito/MockSettings;)Ljava/lang/Object;+66
+j  org.mockito.Mockito.mock(Ljava/lang/Class;Lorg/mockito/MockSettings;)Ljava/lang/Object;+5
+j  org.springframework.boot.test.mock.mockito.MockDefinition.createMock(Ljava/lang/String;)Ljava/lang/Object;+82
+j  org.springframework.boot.test.mock.mockito.MockitoPostProcessor.registerMock(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;Lorg/springframework/boot/test/mock/mockito/MockDefinition;Ljava/lang/reflect/Field;)V+93
+j  org.springframework.boot.test.mock.mockito.MockitoPostProcessor.register(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;Lorg/springframework/boot/test/mock/mockito/Definition;Ljava/lang/reflect/Field;)V+16
+j  org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;)V+122
+j  org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+14
+j  org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(Ljava/util/Collection;Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+28
+j  org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Ljava/util/List;)V+753
+j  org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;)V+5
+j  org.springframework.context.support.AbstractApplicationContext.refresh()V+28
+j  org.springframework.boot.SpringApplication.refresh(Lorg/springframework/context/ApplicationContext;)V+10
+j  org.springframework.boot.SpringApplication.refreshContext(Lorg/springframework/context/ConfigurableApplicationContext;)V+2
+j  org.springframework.boot.SpringApplication.run([Ljava/lang/String;)Lorg/springframework/context/ConfigurableApplicationContext;+118
+j  org.springframework.boot.test.context.SpringBootContextLoader.loadContext(Lorg/springframework/test/context/MergedContextConfiguration;)Lorg/springframework/context/ApplicationContext;+274
+j  org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(Lorg/springframework/test/context/MergedContextConfiguration;)Lorg/springframework/context/ApplicationContext;+27
+j  org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(Lorg/springframework/test/context/MergedContextConfiguration;)Lorg/springframework/context/ApplicationContext;+24
+j  org.springframework.test.context.support.DefaultTestContext.getApplicationContext()Lorg/springframework/context/ApplicationContext;+8
+j  org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(Lorg/springframework/test/context/TestContext;Ljava/util/function/BiConsumer;)V+31
+j  org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(Lorg/springframework/test/context/TestContext;)V+7
+j  org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(Lorg/springframework/test/context/TestContext;)V+7
+j  org.springframework.test.context.TestContextManager.prepareTestInstance(Ljava/lang/Object;)V+89
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest()Ljava/lang/Object;+10
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall()Ljava/lang/Object;+4
+j  org.junit.internal.runners.model.ReflectiveCallable.run()Ljava/lang/Object;+1
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(Lorg/junit/runners/model/FrameworkMethod;)Lorg/junit/runners/model/Statement;+8
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(Lorg/junit/runners/model/FrameworkMethod;Lorg/junit/runner/notification/RunNotifier;)V+24
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(Ljava/lang/Object;Lorg/junit/runner/notification/RunNotifier;)V+6
+j  org.junit.runners.ParentRunner$3.run()V+12
+j  org.junit.runners.ParentRunner$1.schedule(Ljava/lang/Runnable;)V+1
+j  org.junit.runners.ParentRunner.runChildren(Lorg/junit/runner/notification/RunNotifier;)V+44
+j  org.junit.runners.ParentRunner.access$000(Lorg/junit/runners/ParentRunner;Lorg/junit/runner/notification/RunNotifier;)V+2
+j  org.junit.runners.ParentRunner$2.evaluate()V+8
+j  org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate()V+11
+j  org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate()V+12
+j  org.junit.runners.ParentRunner.run(Lorg/junit/runner/notification/RunNotifier;)V+20
+j  org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(Lorg/junit/runner/notification/RunNotifier;)V+24
+j  org.junit.runner.JUnitCore.run(Lorg/junit/runner/Runner;)Lorg/junit/runner/Result;+37
+j  com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs([Ljava/lang/String;Ljava/lang/String;IZ)I+146
+j  com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(Lcom/intellij/rt/junit/IdeaTestRunner;[Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;IZ)I+22
+j  com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart([Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)I+116
+j  com.intellij.rt.junit.JUnitStarter.main([Ljava/lang/String;)V+116
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x136ae2]
+V  [jvm.dll+0x200b4b]
+V  [jvm.dll+0x1367da]
+V  [jvm.dll+0xc8d71]
+V  [jvm.dll+0xc1bd0]
+C  [java.exe+0x2271]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14925400 JavaThread "Service Thread" daemon [_thread_blocked, id=4412, stack(0x14bb0000,0x14c00000)]
+  0x148f0c00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=2220, stack(0x14b20000,0x14b70000)]
+  0x148f0400 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=9032, stack(0x14a90000,0x14ae0000)]
+  0x148a9800 JavaThread "Attach Listener" daemon [_thread_blocked, id=8120, stack(0x14a00000,0x14a50000)]
+  0x148b8800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8452, stack(0x14970000,0x149c0000)]
+  0x14894800 JavaThread "Finalizer" daemon [_thread_blocked, id=3164, stack(0x146f0000,0x14740000)]
+  0x1488e000 JavaThread "Reference Handler" daemon [_thread_blocked, id=3512, stack(0x14660000,0x146b0000)]
+=>0x006e9400 JavaThread "main" [_thread_in_Java, id=1272, stack(0x00b10000,0x00b60000)]
+
+Other Threads:
+  0x0079ac00 VMThread [stack: 0x04150000,0x041a0000] [id=7600]
+  0x14926000 WatcherThread [stack: 0x14c40000,0x14c90000] [id=4464]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4992K, used 2785K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,  50% used [0x04200000, 0x044387b0, 0x04660000)
+  from space 512K,  99% used [0x04660000, 0x046dff08, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8908K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  81% used [0x09750000, 0x0a0032e8, 0x0a003400, 0x0a200000)
+ Metaspace       used 18644K, capacity 19330K, committed 19456K, reserved 19840K
+
+Card table byte_map: [0x04020000,0x040b0000] byte_map_base: 0x03fff000
+
+Polling page: 0x00640000
+
+CodeCache: size=32768Kb used=2132Kb max_used=2186Kb free=30635Kb
+ bounds [0x01fa0000, 0x021c8000, 0x03fa0000]
+ total_blobs=1259 nmethods=1071 adapters=119
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 3.495 Thread 0x148f0c00 1090             net.bytebuddy.description.type.TypeDescription$Generic$AbstractBase::<init> (5 bytes)
+Event: 3.496 Thread 0x148f0c00 nmethod 1090 0x020e0388 code [0x020e0480, 0x020e0500]
+Event: 3.539 Thread 0x148f0c00 1091             net.bytebuddy.matcher.FilterableList$AbstractBase::<init> (5 bytes)
+Event: 3.540 Thread 0x148f0c00 nmethod 1091 0x020e01c8 code [0x020e02c0, 0x020e0340]
+Event: 3.540 Thread 0x148f0c00 1092             net.bytebuddy.jar.asm.ByteVector::putUTF8 (144 bytes)
+Event: 3.540 Thread 0x148f0c00 nmethod 1092 0x020dfa08 code [0x020dfb50, 0x020dfe20]
+Event: 3.541 Thread 0x148f0c00 1093             net.bytebuddy.description.type.TypeList$Generic$Explicit::size (10 bytes)
+Event: 3.541 Thread 0x148f0c00 nmethod 1093 0x020df808 code [0x020df910, 0x020df9ac]
+Event: 3.541 Thread 0x148f0c00 1094             net.bytebuddy.description.type.TypeDescription$Generic$OfNonGenericType$ForLoadedType::asErasure (8 bytes)
+Event: 3.541 Thread 0x148f0c00 nmethod 1094 0x020df388 code [0x020df4b0, 0x020df658]
+
+GC Heap History (10 events):
+Event: 3.315 GC heap before
+{Heap before GC invocations=64 (full 1):
+ def new generation   total 4992K, used 4954K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K, 100% used [0x04200000, 0x04660000, 0x04660000)
+  from space 512K,  92% used [0x046e0000, 0x04756848, 0x04760000)
+  to   space 512K,   0% used [0x04660000, 0x04660000, 0x046e0000)
+ tenured generation   total 10944K, used 8525K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  77% used [0x09750000, 0x09fa3578, 0x09fa3600, 0x0a200000)
+ Metaspace       used 17367K, capacity 18064K, committed 18176K, reserved 18816K
+Event: 3.317 GC heap after
+Heap after GC invocations=65 (full 1):
+ def new generation   total 4992K, used 346K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,   0% used [0x04200000, 0x04200000, 0x04660000)
+  from space 512K,  67% used [0x04660000, 0x046b6bc8, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8638K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  78% used [0x09750000, 0x09fbf800, 0x09fbf800, 0x0a200000)
+ Metaspace       used 17367K, capacity 18064K, committed 18176K, reserved 18816K
+}
+Event: 3.353 GC heap before
+{Heap before GC invocations=65 (full 1):
+ def new generation   total 4992K, used 4826K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K, 100% used [0x04200000, 0x04660000, 0x04660000)
+  from space 512K,  67% used [0x04660000, 0x046b6bc8, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8638K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  78% used [0x09750000, 0x09fbf800, 0x09fbf800, 0x0a200000)
+ Metaspace       used 17606K, capacity 18320K, committed 18432K, reserved 18816K
+Event: 3.355 GC heap after
+Heap after GC invocations=66 (full 1):
+ def new generation   total 4992K, used 445K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,   0% used [0x04200000, 0x04200000, 0x04660000)
+  from space 512K,  87% used [0x046e0000, 0x0474f6d8, 0x04760000)
+  to   space 512K,   0% used [0x04660000, 0x04660000, 0x046e0000)
+ tenured generation   total 10944K, used 8690K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  79% used [0x09750000, 0x09fcc820, 0x09fcca00, 0x0a200000)
+ Metaspace       used 17606K, capacity 18320K, committed 18432K, reserved 18816K
+}
+Event: 3.404 GC heap before
+{Heap before GC invocations=66 (full 1):
+ def new generation   total 4992K, used 4925K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K, 100% used [0x04200000, 0x04660000, 0x04660000)
+  from space 512K,  87% used [0x046e0000, 0x0474f6d8, 0x04760000)
+  to   space 512K,   0% used [0x04660000, 0x04660000, 0x046e0000)
+ tenured generation   total 10944K, used 8690K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  79% used [0x09750000, 0x09fcc820, 0x09fcca00, 0x0a200000)
+ Metaspace       used 17891K, capacity 18608K, committed 18688K, reserved 18816K
+Event: 3.406 GC heap after
+Heap after GC invocations=67 (full 1):
+ def new generation   total 4992K, used 495K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,   0% used [0x04200000, 0x04200000, 0x04660000)
+  from space 512K,  96% used [0x04660000, 0x046dbe78, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8730K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  79% used [0x09750000, 0x09fd69f0, 0x09fd6a00, 0x0a200000)
+ Metaspace       used 17891K, capacity 18608K, committed 18688K, reserved 18816K
+}
+Event: 3.457 GC heap before
+{Heap before GC invocations=67 (full 1):
+ def new generation   total 4992K, used 4975K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K, 100% used [0x04200000, 0x04660000, 0x04660000)
+  from space 512K,  96% used [0x04660000, 0x046dbe78, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8730K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  79% used [0x09750000, 0x09fd69f0, 0x09fd6a00, 0x0a200000)
+ Metaspace       used 18159K, capacity 18882K, committed 19072K, reserved 19840K
+Event: 3.458 GC heap after
+Heap after GC invocations=68 (full 1):
+ def new generation   total 4992K, used 509K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,   0% used [0x04200000, 0x04200000, 0x04660000)
+  from space 512K,  99% used [0x046e0000, 0x0475f6e0, 0x04760000)
+  to   space 512K,   0% used [0x04660000, 0x04660000, 0x046e0000)
+ tenured generation   total 10944K, used 8789K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  80% used [0x09750000, 0x09fe56f0, 0x09fe5800, 0x0a200000)
+ Metaspace       used 18159K, capacity 18882K, committed 19072K, reserved 19840K
+}
+Event: 3.513 GC heap before
+{Heap before GC invocations=68 (full 1):
+ def new generation   total 4992K, used 4989K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K, 100% used [0x04200000, 0x04660000, 0x04660000)
+  from space 512K,  99% used [0x046e0000, 0x0475f6e0, 0x04760000)
+  to   space 512K,   0% used [0x04660000, 0x04660000, 0x046e0000)
+ tenured generation   total 10944K, used 8789K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  80% used [0x09750000, 0x09fe56f0, 0x09fe5800, 0x0a200000)
+ Metaspace       used 18501K, capacity 19202K, committed 19328K, reserved 19840K
+Event: 3.516 GC heap after
+Heap after GC invocations=69 (full 1):
+ def new generation   total 4992K, used 511K [0x04200000, 0x04760000, 0x09750000)
+  eden space 4480K,   0% used [0x04200000, 0x04200000, 0x04660000)
+  from space 512K,  99% used [0x04660000, 0x046dff08, 0x046e0000)
+  to   space 512K,   0% used [0x046e0000, 0x046e0000, 0x04760000)
+ tenured generation   total 10944K, used 8908K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,  81% used [0x09750000, 0x0a0032e8, 0x0a003400, 0x0a200000)
+ Metaspace       used 18501K, capacity 19202K, committed 19328K, reserved 19840K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 2.993 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x04432b10) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.019 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x04276b18) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.130 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x044f4a00) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.130 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x044f5c68) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.130 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x044f8528) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.130 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x044f9b78) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.414 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x042bc030) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.417 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x042e0168) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.504 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x04592c80) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 3.504 Thread 0x006e9400 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x04594240) thrown at [C:\cygwin64\tmp\openjdk-jdk8u-windows-x86-32-hotspot\workspace\build\src\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+
+Events (10 events):
+Event: 3.539 loading class net/bytebuddy/implementation/bytecode/member/MethodVariableAccess$MethodLoading$TypeCastingHandler$NoOp
+Event: 3.539 loading class net/bytebuddy/implementation/bytecode/member/MethodVariableAccess$MethodLoading$TypeCastingHandler$NoOp done
+Event: 3.542 loading class net/bytebuddy/implementation/bind/MethodDelegationBinder$MethodBinding$Illegal
+Event: 3.542 loading class net/bytebuddy/implementation/bind/MethodDelegationBinder$MethodBinding$Illegal done
+Event: 3.543 loading class net/bytebuddy/implementation/bytecode/assign/primitive/PrimitiveBoxingDelegate
+Event: 3.543 loading class net/bytebuddy/implementation/bytecode/assign/primitive/PrimitiveBoxingDelegate done
+Event: 3.544 loading class net/bytebuddy/implementation/bytecode/assign/primitive/PrimitiveBoxingDelegate$BoxingStackManipulation
+Event: 3.544 loading class net/bytebuddy/implementation/bytecode/assign/primitive/PrimitiveBoxingDelegate$BoxingStackManipulation done
+Event: 3.545 loading class net/bytebuddy/description/type/TypeDescription$Generic$Visitor$ForSignatureVisitor$OfTypeArgument
+Event: 3.545 loading class net/bytebuddy/description/type/TypeDescription$Generic$Visitor$ForSignatureVisitor$OfTypeArgument done
+
+
+Dynamic libraries:
+0x00b60000 - 0x00b95000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\bin\java.exe
+0x77c90000 - 0x77dff000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77950000 - 0x77a90000 	C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+0x77ae0000 - 0x77bb7000 	C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+0x75350000 - 0x7535f000 	C:\Program Files\Avast Software\Avast\x86\aswhook.dll
+0x743f0000 - 0x74490000 	C:\WINDOWS\system32\apphelp.dll
+0x75470000 - 0x754ec000 	C:\WINDOWS\SYSTEM32\ADVAPI32.dll
+0x77260000 - 0x773b4000 	C:\WINDOWS\SYSTEM32\USER32.dll
+0x73a20000 - 0x73c27000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9600.19394_none_a9f59c4f01325ed5\COMCTL32.dll
+0x75500000 - 0x755c3000 	C:\WINDOWS\SYSTEM32\msvcrt.dll
+0x77080000 - 0x770c1000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x76d00000 - 0x76dba000 	C:\WINDOWS\SYSTEM32\RPCRT4.dll
+0x77830000 - 0x7793c000 	C:\WINDOWS\SYSTEM32\GDI32.dll
+0x768a0000 - 0x768be000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x75460000 - 0x7546a000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x75400000 - 0x75454000 	C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+0x76a90000 - 0x76ab7000 	C:\WINDOWS\system32\IMM32.DLL
+0x77710000 - 0x77822000 	C:\WINDOWS\SYSTEM32\MSCTF.dll
+0x72cd0000 - 0x72dbe000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\msvcr120.dll
+0x72c50000 - 0x72cc1000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\msvcp120.dll
+0x728c0000 - 0x72c4c000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\client\jvm.dll
+0x75340000 - 0x75348000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x75310000 - 0x75333000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x74dd0000 - 0x74dd8000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x754f0000 - 0x754f6000 	C:\WINDOWS\SYSTEM32\PSAPI.DLL
+0x768c0000 - 0x7690f000 	C:\WINDOWS\SYSTEM32\WS2_32.dll
+0x751f0000 - 0x75213000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x77940000 - 0x77947000 	C:\WINDOWS\SYSTEM32\NSI.dll
+0x77aa0000 - 0x77adc000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x751c0000 - 0x751e1000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x751b0000 - 0x751bd000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\verify.dll
+0x75180000 - 0x751a4000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\java.dll
+0x73670000 - 0x73698000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\instrument.dll
+0x75160000 - 0x75174000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\zip.dll
+0x755e0000 - 0x7689b000 	C:\WINDOWS\SYSTEM32\SHELL32.dll
+0x77580000 - 0x776fd000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x76c10000 - 0x76c55000 	C:\WINDOWS\SYSTEM32\SHLWAPI.dll
+0x75370000 - 0x753fb000 	C:\WINDOWS\SYSTEM32\SHCORE.dll
+0x745e0000 - 0x745ef000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x728a0000 - 0x728b6000 	C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin\breakgen.dll
+0x75130000 - 0x75146000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\net.dll
+0x750e0000 - 0x7512b000 	C:\WINDOWS\system32\mswsock.dll
+0x75150000 - 0x7515a000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\management.dll
+0x74840000 - 0x74851000 	C:\WINDOWS\system32\napinsp.dll
+0x74820000 - 0x74836000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x747f0000 - 0x74804000 	C:\WINDOWS\system32\NLAapi.dll
+0x74770000 - 0x747ee000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x74760000 - 0x7476a000 	C:\WINDOWS\System32\winrnr.dll
+0x74750000 - 0x74760000 	C:\WINDOWS\system32\wshbth.dll
+0x74720000 - 0x74741000 	C:\Program Files (x86)\Bonjour\mdnsNSP.dll
+0x74940000 - 0x74960000 	C:\WINDOWS\SYSTEM32\Iphlpapi.DLL
+0x74e00000 - 0x74e08000 	C:\WINDOWS\SYSTEM32\WINNSI.DLL
+0x746c0000 - 0x746c8000 	C:\Windows\System32\rasadhlp.dll
+0x746d0000 - 0x74716000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x74f00000 - 0x74f0f000 	C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\bin\nio.dll
+0x74210000 - 0x74351000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\lib\idea_rt.jar=62503:C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin -Dfile.encoding=UTF-8 
+java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit4 com.pawelnowak.cracow.web.application.ReservationControllerTest,testEmployeeController
+java_class_path (initial): C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\lib\idea_rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\plugins\junit\lib\junit5-rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2019.3\plugins\junit\lib\junit-rt.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\charsets.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\access-bridge-32.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\access-bridge.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\cldrdata.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\dnsns.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\jaccess.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\localedata.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\nashorn.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\sunec.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\sunjce_provider.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\sunmscapi.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\sunpkcs11.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\ext\zipfs.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\jce.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\jsse.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\management-agent.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\resources.jar;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\jre\lib\rt.jar;C:\Users\nnowa_000\Desktop\23-spring-data-jpa-crud-demo\target\test-classes;C:\Users\nnowa_000\Desktop\23-spring-data-jpa-crud-demo\target\classes;C:\Users\nnowa_000\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.2.5.RELEASE\spri
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\
+PATH=C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;c:\Program Files\Intel\WiFi\bin\;c:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Java\jdk-11.0.5\bin;C:\Program Files\Git\cmd;C:\maven\bin;C:\Users\nnowa_000\Desktop\spring-boot-cli-1.3.0.RELEASE-bin\spring-1.3.0.RELEASE\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Gradle1\gradle-5.6.2\bin;C:\Program Files\Java\jdk1.8.0_231\bin
+USERNAME=nnowa_000
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 (6.3.9600.19538)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 61 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 4082796k(210040k free), swap 7593840k(1707436k free)
+
+vm_info: OpenJDK Client VM (25.232-b09) for windows-x86 JRE (1.8.0_232-b09), built on Oct 19 2019 08:36:22 by "jenkins" with MS VC++ 12.0 (VS2013)
+
+time: Sun Apr 26 16:14:23 2020
+timezone: ?rodkowoeuropejski czas letni
+elapsed time: 3 seconds (0d 0h 0m 3s)
+

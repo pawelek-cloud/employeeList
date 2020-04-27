@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Home Page</title>
+
+</head>
+<body>
+<div class="container">
+    <h3>Home Page</h3>
+    <hr>
+
+    <p>
+        Welcome to the company home page!
+    </p>
+
+    <hr>
+
+    <!-- display user name and role -->
+
+    <div>
+        User: <span sec:authentication="name"></span>
+        <br><br>
+        Role(s): <span sec:authentication="principal.authorities"></span>
+        <br><br>
+
+        <!-- Check for login error -->
+        <div th:if="${session.user}">
+            <p th:text="'First name: ' + ${session.user.firstName} + ', Last name: ' + ${session.user.lastName} + ', Email: ' + ${session.user.email}"></p>
+        </div>
+
+
+    </div>
+    <!--Add a button-->
+    <a th:href="@{/employees/showFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
+        Add Employee
+
+    </a>
+
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempEmployee:${employees}">
+            <td th:text="${tempEmployee.firstName}"/>
+            <td th:text="${tempEmployee.lastName}"></td>
+            <td th:text="${tempEmployee.email}"></td>
+
+            <!--Add update button/link-->
+            <td>
+                <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+                    class="btn btn-info btn-sm">
+                    Update
+                </a>
+                <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+                   class="btn btn-danger btn-sm"
+                onclick="if(!(confirm('Are you sure you want to delete this employee')))return false">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<div sec:authorize="hasRole('ROLE_MANAGER')">
+
+    <!-- Add a link to point to /leaders ... this is for the managers -->
+
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+        (Only for Manager)
+    </p>
+
+</div>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+
+    <!-- Add a link to point to /systems ... this is for the admins -->
+
+    <p>
+        <a th:href="@{/systems}">IT Systems Meeting</a>
+        (Only for Admin)
+    </p>
+
+</div>
+
+<hr>
+
+
+<!-- Add a logout button -->
+<form th:action="@{/logout}"
+      method="POST">
+
+    <input type="submit" value="Logout" />
+
+</form>
+</div>
+</body>
+</html>
